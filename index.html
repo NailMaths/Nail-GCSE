@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nail GCSE Maths | Get the grade your child is capable of</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root{
+  --green:#1F4A3D;
+  --green-deep:#15362C;
+  --green-mid:#2E6B57;
+  --green-bright:#3E8E72;
+  --green-pale:#E8F0EB;
+  --green-faint:#EDF4EF;
+  --paper:#FAF7F0;
+  --paper-mid:#F2EDE2;
+  --ink:#1E2B3C;
+  --pencil:#4A4A4A;
+  --muted:#9A9080;
+  --terra:#C8553D;
+  --terra-dark:#a8432d;
+  --terra-pale:#FDF0ED;
+  --gold:#4FA98A;
+  --line:#E0DBD0;
+  --white:#ffffff;
+  --maxw:1100px;
+  --heading:#1E2B3C;
+  --accent:#B5936A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;font-weight:600;letter-spacing:-.015em}
+.hand{font-family:'Caveat',cursive;font-weight:700}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--terra);color:#fff;font-weight:700;font-size:1.05rem;padding:18px 36px;border-radius:50px;border:none;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:'Inter',sans-serif;box-shadow:0 6px 0 var(--terra-dark),0 8px 20px rgba(200,85,61,.22);text-decoration:none}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--terra-dark),0 14px 28px rgba(200,85,61,.28)}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--terra-dark)}
+.btn-lg{font-size:1.15rem;padding:20px 48px}
+.btn-xl{font-size:1.2rem;padding:22px 56px}
+.btn-ghost{display:inline-flex;align-items:center;gap:7px;color:var(--pencil);font-weight:600;font-size:.92rem;border-bottom:1.5px solid var(--line);padding-bottom:2px;transition:color .15s,border-color .15s}
+.btn-ghost:hover{color:var(--green-deep);border-color:var(--green-bright)}
+
+/* ── NAV ── */
+header.nav{position:sticky;top:0;z-index:100;background:rgba(252,250,243,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.3rem;color:var(--heading);letter-spacing:-.02em}
+.logo span{color:var(--terra)}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:.88rem;font-weight:500}
+.nav-links a{color:var(--pencil);transition:color .15s}
+.nav-links a:hover{color:var(--heading)}
+.nav-cta{background:var(--terra)!important;color:#fff!important;padding:10px 22px;border-radius:50px;font-weight:700!important;font-size:.88rem;box-shadow:0 3px 0 var(--terra-dark)}
+
+/* ── EXAM COUNTDOWN BANNER ── */
+.exam-banner{background:var(--ink);color:rgba(255,255,255,.9);text-align:center;padding:10px 0;font-size:.82rem;font-weight:500;letter-spacing:.01em}
+.exam-banner strong{color:#fff;font-weight:700}
+.exam-banner a{color:var(--gold);font-weight:700;border-bottom:1px solid rgba(79,169,138,.4)}
+
+/* ── HERO ── */
+.hero{background:var(--paper);padding:68px 0 76px;border-bottom:1px solid var(--line)}
+.hero-inner{display:grid;grid-template-columns:1fr 420px;gap:56px;align-items:center}
+.hero-eyebrow{font-size:.75rem;font-weight:700;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px;letter-spacing:.09em;text-transform:uppercase}
+.hero-eyebrow::before{content:'';display:block;width:18px;height:1.5px;background:var(--line)}
+.hero h1{font-size:clamp(2rem,3.8vw,3.1rem);color:var(--heading);font-weight:700;margin-bottom:22px;max-width:520px;line-height:1.08}
+.hero h1 em{font-style:normal;color:var(--green-mid)}
+.hero h1 strong{color:var(--terra)}
+.hero-sub{font-size:.98rem;color:var(--pencil);max-width:460px;margin-bottom:10px;line-height:1.72}
+.hero-sub strong{color:var(--ink);font-weight:600}
+
+/* Price anchor — shown early in hero */
+.hero-price-anchor{display:inline-flex;align-items:center;gap:12px;background:var(--green-faint);border:1px solid var(--line);border-radius:10px;padding:10px 16px;margin-bottom:22px;margin-top:10px}
+.hpa-price{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--heading);line-height:1}
+.hpa-vs{font-size:.78rem;color:var(--muted);padding:0 8px;border-left:1px solid var(--line);border-right:1px solid var(--line);margin:0 2px}
+.hpa-comp{font-size:.82rem;color:var(--pencil);line-height:1.4}
+.hpa-comp strong{color:var(--green-mid);font-weight:700}
+
+.hero-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.hero-reassure{font-size:.74rem;color:var(--muted)}
+
+/* ── GRADE PANEL ── */
+.grade-panel{background:var(--white);border:2px solid var(--heading);border-radius:22px;padding:28px 24px;box-shadow:0 10px 40px rgba(30,43,60,.1)}
+.gp-head{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.gp-head::after{content:'';flex:1;height:1px;background:var(--line)}
+.grade-row{display:flex;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 15px;margin-bottom:9px;transition:background .2s,border-color .2s}
+.grade-row:last-of-type{margin-bottom:0}
+.grade-row:hover{background:var(--green-faint);border-color:var(--green-bright)}
+.gr-from{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:var(--pencil);line-height:1;min-width:30px;text-align:center}
+.gr-mid{display:flex;flex-direction:column;align-items:center;padding:0 9px;gap:1px}
+.gr-arrow{font-size:.95rem;color:var(--green-bright);font-weight:800;line-height:1}
+.gr-lbl{font-size:.54rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.gr-to{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:700;color:var(--heading);line-height:1;min-width:30px;text-align:center}
+.gr-sep{width:1px;height:30px;background:var(--line);margin:0 13px;flex-shrink:0}
+.gr-info{flex:1;min-width:0}
+.gr-name{font-size:.83rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.gr-ctx{font-size:.72rem;color:var(--muted);line-height:1.3}
+.gp-note{font-size:.67rem;color:var(--muted);text-align:center;margin-top:14px;font-style:italic}
+
+/* ── TRUST STRIP ── */
+.trust{background:var(--white);border-bottom:1px solid var(--line);border-top:1px solid rgba(31,74,61,.08)}
+.trust-inner{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:center;padding:11px 0;font-size:.77rem;font-weight:600;color:var(--pencil)}
+.trust-inner span{display:inline-flex;align-items:center;gap:5px}
+.t-tick{color:var(--green-bright)}
+
+/* ── SECTIONS ── */
+section{padding:72px 0}
+.sec-label{font-family:'Caveat',cursive;font-size:1.2rem;color:var(--green-mid);font-weight:700;margin-bottom:6px;display:block}
+h2.sec-title{font-size:clamp(1.7rem,3vw,2.4rem);color:var(--heading);margin-bottom:14px}
+.sec-sub{font-size:.97rem;color:var(--pencil);line-height:1.72;max-width:560px;margin-bottom:36px}
+.bg-white{background:var(--white)}
+.bg-paper{background:var(--paper)}
+.bg-faint{background:var(--green-faint)}
+.bg-paper-mid{background:var(--paper-mid)}
+.sec-rule{border:none;border-top:1px solid var(--line);margin:0}
+
+/* ── 10PM MOMENT — emotional hook section ── */
+.moment{background:var(--ink);padding:52px 0}
+.moment-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.moment-left h2{font-size:clamp(1.6rem,3vw,2.3rem);color:#fff;margin-bottom:16px;line-height:1.12}
+.moment-left h2 em{font-style:normal;color:var(--gold)}
+.moment-left p{font-size:.97rem;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:22px}
+.moment-left p strong{color:#fff}
+.moment-quote{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 22px}
+.moment-quote p{font-size:.93rem;color:rgba(255,255,255,.9);line-height:1.65;font-style:italic;margin-bottom:10px}
+.moment-quote cite{font-size:.78rem;color:rgba(255,255,255,.5);font-style:normal;font-weight:600}
+
+/* ── PROOF SECTION ── */
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:28px}
+.proof-card{background:var(--white);border:1.5px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s,box-shadow .2s}
+.proof-card:hover{border-color:var(--green-bright);box-shadow:0 6px 24px rgba(31,74,61,.08)}
+.proof-card.feat{border-color:var(--green-bright);background:var(--green-faint)}
+.pjump{display:flex;align-items:center;gap:8px}
+.pj-f{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--pencil);line-height:1}
+.pj-a{font-size:1.3rem;color:var(--green-bright);font-weight:800}
+.pj-t{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--heading);line-height:1}
+.pj-badge{background:var(--green-pale);color:var(--green-mid);font-size:.67rem;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.04em;text-transform:uppercase;margin-left:6px;align-self:flex-end;padding-bottom:4px}
+.pj-badge.gold{background:#FEF3D6;color:#9A6B0A}
+.p-stars{color:var(--terra);letter-spacing:2px;font-size:.8rem}
+.p-quote{font-size:.92rem;color:var(--ink);line-height:1.65;font-style:italic}
+.p-who{font-size:.79rem;font-weight:700;color:var(--pencil)}
+.p-who span{font-weight:400;color:var(--muted)}
+.val-bar{border:1.5px solid var(--line);border-left:4px solid var(--terra);border-radius:14px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;background:var(--white);margin-top:28px}
+.vb-stat{text-align:center}
+.vb-num{font-family:'Fraunces',serif;font-size:1.65rem;font-weight:700;color:var(--heading);line-height:1}
+.vb-lbl{font-size:.71rem;color:var(--muted);margin-top:3px}
+.vb-div{width:1px;height:38px;background:var(--line)}
+
+/* ── METHOD ── */
+.method-name-block{border-left:4px solid var(--accent);background:var(--paper-mid);border-radius:0 12px 12px 0;padding:16px 22px;display:inline-block;margin-bottom:32px}
+.method-name-block p{font-family:'Fraunces',serif;font-size:clamp(1.4rem,2.6vw,2rem);font-style:italic;color:var(--heading);line-height:1.2}
+.method-name-block p span{color:var(--green-mid)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--white);border:1.5px solid var(--line);border-radius:16px;padding:28px 22px;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.step::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--gold));opacity:0;transition:opacity .2s}
+.step:hover{border-color:var(--green-bright);box-shadow:0 6px 20px rgba(31,74,61,.08)}
+.step:hover::before{opacity:1}
+.step-n{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:700;color:#D8D0C4;line-height:1;margin-bottom:12px}
+.step-t{font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:7px;font-family:'Inter',sans-serif}
+.step-b{font-size:.88rem;color:var(--pencil);line-height:1.65}
+.step-b em{color:var(--green-mid);font-style:normal;font-weight:600}
+
+/* ── SAMPLE LESSONS ── */
+.sample-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto}
+.sample-card{background:var(--white);border:1.5px solid var(--line);border-radius:13px;overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.sample-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(31,74,61,.1);border-color:var(--green-bright)}
+.s-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--green-deep),var(--green-mid));position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;max-height:160px}
+.s-mod{position:absolute;top:9px;left:9px;background:rgba(0,0,0,.35);border-radius:4px;padding:3px 7px;font-size:.65rem;font-weight:700;color:#fff;letter-spacing:.05em;text-transform:uppercase}
+.s-dur{position:absolute;bottom:9px;right:9px;background:var(--terra);border-radius:4px;padding:3px 7px;font-size:.65rem;font-weight:700;color:#fff}
+.play-c{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.sample-card:hover .play-c{background:rgba(255,255,255,.3)}
+.play-c svg{width:17px;height:17px;fill:#fff;margin-left:2px}
+.s-body{padding:14px 16px}
+.s-body h3{font-family:'Inter',sans-serif;font-size:.86rem;font-weight:700;color:var(--heading);margin-bottom:4px;line-height:1.3}
+.s-body p{font-size:.79rem;color:var(--pencil);line-height:1.5}
+.s-tag{font-family:'Caveat',cursive;font-size:.97rem;color:var(--green-mid);margin-top:8px;display:block;font-weight:700}
+
+/* ── HOW IT WORKS ── */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:12px}
+.how-card{background:var(--white);border:1.5px solid var(--line);border-radius:16px;padding:32px 26px;transition:border-color .2s,box-shadow .2s}
+.how-card:hover{border-color:var(--green-bright);box-shadow:0 6px 20px rgba(31,74,61,.07)}
+.how-ico{width:46px;height:46px;border-radius:11px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--green);margin-bottom:18px;border:1px solid var(--line)}
+.how-card h3{font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:10px}
+.how-card p{font-size:.88rem;color:var(--pencil);line-height:1.7;margin-bottom:6px}
+.how-tag{font-family:'Caveat',cursive;font-size:1.05rem;color:var(--green-mid);display:block;margin-top:13px;font-weight:700}
+
+/* ── WHY IT WORKS ── */
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.why-item{display:flex;gap:14px;background:var(--white);border:1.5px solid var(--line);border-radius:13px;padding:20px;transition:border-color .2s}
+.why-item:hover{border-color:var(--green-bright)}
+.why-ck{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--green-pale);color:var(--green-bright);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.88rem;margin-top:1px;border:1px solid var(--line)}
+.why-item h3{font-family:'Inter',sans-serif;font-size:.91rem;font-weight:700;color:var(--heading);margin-bottom:4px}
+.why-item p{font-size:.84rem;color:var(--pencil);line-height:1.62}
+
+/* ── PATHWAYS ── */
+.path-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+
+/* ── MID CTA ── */
+.mid-cta{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:52px 0;background:var(--paper-mid)}
+.mid-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.mc-left h2{font-size:clamp(1.4rem,2.5vw,2rem);color:var(--heading);margin-bottom:6px}
+.mc-left p{font-size:.95rem;color:var(--pencil);max-width:440px}
+.mc-right{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0}
+.mc-price .amt{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--green);line-height:1}
+.mc-price .lbl{font-size:.72rem;color:var(--muted)}
+
+/* ── TEACHERS ── */
+.teach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.teach{background:var(--white);border:1.5px solid var(--line);border-radius:16px;padding:26px;transition:border-color .2s}
+.teach:hover{border-color:var(--green-bright)}
+.teach-av{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--green-mid),var(--green-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;margin-bottom:12px}
+.teach h3{font-size:1.05rem;color:var(--heading);margin-bottom:1px}
+.teach-role{font-family:'Caveat',cursive;font-size:1.05rem;color:var(--green-mid);font-weight:700;margin-bottom:10px;display:block}
+.teach p{font-size:.86rem;color:var(--ink);margin-bottom:10px;line-height:1.62}
+.teach ul{list-style:none}
+.teach li{font-size:.8rem;color:var(--pencil);padding:3px 0 3px 18px;position:relative;line-height:1.4}
+.teach li::before{content:'✓';position:absolute;left:0;color:var(--green-bright);font-weight:800}
+
+/* ── CURRICULUM ── */
+.mod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.mod{display:flex;align-items:center;gap:14px;background:var(--white);border:1.5px solid var(--line);border-radius:11px;padding:14px 16px;transition:border-color .2s,background .2s}
+.mod:hover{border-color:var(--green-bright);background:var(--green-faint)}
+.mod-no{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--accent);min-width:26px;line-height:1}
+.mod-body h3{font-size:.93rem;color:var(--heading);margin-bottom:2px;font-family:'Inter',sans-serif;font-weight:600}
+.mod-body p{font-size:.78rem;color:var(--pencil);line-height:1.35}
+.mod-count{font-size:.7rem;color:var(--muted);font-weight:700;margin-left:auto;white-space:nowrap;align-self:flex-start;padding-top:3px}
+.curr-note{text-align:center;margin-top:18px;font-size:.84rem;color:var(--muted)}
+
+/* ── REVIEWS ── */
+.rev-grid{columns:3;column-gap:16px}
+.rev{break-inside:avoid;background:var(--white);border:1.5px solid var(--line);border-radius:13px;padding:20px;margin-bottom:16px;transition:border-color .2s}
+.rev:hover{border-color:var(--green-bright)}
+.rev-stars{color:var(--terra);letter-spacing:2px;margin-bottom:7px;font-size:.8rem}
+.rev p{font-size:.9rem;color:var(--ink);margin-bottom:10px;line-height:1.6;font-style:italic}
+.rev-who{font-size:.78rem;color:var(--pencil);font-weight:700}
+.rev-who span{display:block;font-weight:400;color:var(--muted);font-size:.73rem;margin-top:1px}
+
+/* ── PRICING ── */
+.pricing-inner{max-width:500px;margin:0 auto}
+.plan-single{background:var(--white);border:2px solid var(--heading);border-radius:22px;padding:36px 32px;box-shadow:0 12px 40px rgba(30,43,60,.1)}
+.plan-ribbon{display:inline-block;background:var(--terra);color:#fff;font-size:.7rem;font-weight:700;padding:5px 12px;border-radius:6px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+.plan-single h3{font-size:1.4rem;color:var(--heading);margin-bottom:4px}
+.plan-who{font-size:.88rem;color:var(--pencil);margin-bottom:18px}
+.plan-price{font-family:'Fraunces',serif;font-size:3rem;font-weight:700;color:var(--heading);line-height:1;margin-bottom:4px}
+.plan-price small{font-size:.92rem;color:var(--pencil);font-weight:400;font-family:'Inter',sans-serif}
+.plan-compare{font-size:.8rem;color:var(--green-mid);margin-bottom:22px;font-weight:500}
+.plan-single ul{list-style:none;margin:0 0 26px}
+.plan-single li{padding:9px 0 9px 24px;position:relative;font-size:.91rem;color:var(--ink);border-bottom:1px solid var(--line)}
+.plan-single li:last-child{border-bottom:none}
+.plan-single li::before{content:'✓';position:absolute;left:0;color:var(--green-bright);font-weight:800}
+.plan-single .btn{width:100%;justify-content:center}
+.plan-guarantee{text-align:center;font-size:.76rem;color:var(--pencil);margin-top:12px;display:flex;align-items:center;justify-content:center;gap:5px}
+
+/* ── FAQ ── */
+.faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:820px;margin:0 auto}
+.faq-item{background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:20px;transition:border-color .2s}
+.faq-item:hover{border-color:var(--green-bright)}
+.faq-item h3{font-family:'Inter',sans-serif;font-size:.92rem;font-weight:700;color:var(--heading);margin-bottom:7px}
+.faq-item p{font-size:.86rem;color:var(--pencil);line-height:1.65}
+.faq-item p+p{margin-top:8px}
+
+/* ── FINAL CTA ── */
+.final{background:var(--green-deep);color:#fff;padding:80px 0;text-align:center;position:relative;overflow:hidden;border-top:4px solid var(--accent)}
+.final::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(79,169,138,.15) 0%,transparent 65%);pointer-events:none}
+.final-inner{position:relative;z-index:2;max-width:560px;margin:0 auto}
+.final .sec-label{color:rgba(255,255,255,.7);display:block;text-align:center;font-size:1.1rem}
+.final h2{font-size:clamp(1.8rem,3.4vw,2.7rem);color:#fff;margin-bottom:14px;line-height:1.15}
+.final h2 .hand{color:var(--gold)}
+.final p{font-size:1rem;color:rgba(255,255,255,.92);margin-bottom:10px;line-height:1.68}
+.final-urgency{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:9px;padding:10px 20px;margin-bottom:26px;font-size:.86rem;color:#fff}
+.final-urgency strong{color:#fff}
+.final-note{font-size:.76rem;color:rgba(255,255,255,.8);margin-top:12px}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);padding:40px 0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.foot-logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:#fff}
+.foot-logo span{color:var(--terra)}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap}
+.foot-links a{color:rgba(255,255,255,.35);font-size:.8rem;transition:color .15s}
+.foot-links a:hover{color:#fff}
+.foot-links-legal a{color:rgba(255,255,255,.22);font-size:.74rem}
+.foot-links-legal a:hover{color:rgba(255,255,255,.6)}
+.foot-legal{margin-top:18px;font-size:.7rem;color:rgba(255,255,255,.18);line-height:1.65}
+
+/* ── REVEAL ── */
+html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .48s ease,transform .48s ease}
+html.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .grade-panel{max-width:480px}
+  .moment-inner{grid-template-columns:1fr}
+  .moment-quote{margin-top:0}
+}
+@media(max-width:860px){
+  .nav-links a:not(.nav-cta){display:none}
+  .teach-grid{grid-template-columns:1fr}
+  .rev-grid{columns:2}
+}
+@media(max-width:640px){
+  h2.sec-title{font-size:1.6rem}
+  .hero h1{font-size:clamp(1.7rem,6vw,2.4rem);line-height:1.12}
+  section{padding:52px 0}
+  .wrap{padding:0 18px}
+  .hero{padding:44px 0 56px}
+  .hero-inner{gap:24px}
+  .hero-cta-row{flex-direction:column;align-items:flex-start;gap:12px}
+  .btn-lg{font-size:1.05rem;padding:18px 32px;width:100%;justify-content:center}
+  .grade-panel{padding:20px 16px}
+  .gr-from,.gr-to{font-size:1.6rem;min-width:26px}
+  .trust-inner{gap:6px 16px;font-size:.73rem}
+  .proof-grid{grid-template-columns:1fr}
+  .val-bar{flex-direction:column;text-align:center;gap:14px;padding:18px 20px}
+  .vb-div{width:48px;height:1px}
+  .steps{grid-template-columns:1fr;gap:12px}
+  .path-grid{grid-template-columns:1fr}
+  .mid-cta-inner{flex-direction:column;text-align:center;gap:20px}
+  .mc-right{align-items:center}
+  .why-grid{grid-template-columns:1fr}
+  .mod-grid{grid-template-columns:1fr}
+  .rev-grid{columns:1}
+  .plan-single{padding:28px 22px}
+  .plan-price{font-size:2.6rem}
+  .faq-grid{grid-template-columns:1fr}
+  .final{padding:56px 0}
+  .final h2{font-size:1.7rem}
+  .foot-inner{flex-direction:column;gap:16px;align-items:flex-start}
+  .foot-links{gap:12px}
+  .hero-price-anchor{flex-direction:column;align-items:flex-start;gap:6px}
+  .hpa-vs{border:none;padding:0;margin:0}
+}
+@media(max-width:480px){
+  .sample-grid{grid-template-columns:1fr}
+  .how-grid{grid-template-columns:1fr;gap:16px}
+}
+@media(max-width:400px){
+  .wrap{padding:0 14px}
+  .gr-from,.gr-to{font-size:1.4rem;min-width:22px}
+  .plan-price{font-size:2.2rem}
+}
+
+/* ── VALUE COMPARISON ── */
+.cmp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.cmp-card{border:1.5px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .2s}
+.cmp-card.featured{border-color:var(--green-mid);border-width:2px;box-shadow:0 6px 24px rgba(31,74,61,.1)}
+.cmp-head{padding:16px 20px;text-align:center}
+.cmp-head h3{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:2px}
+.cmp-head p{font-size:.75rem;color:rgba(255,255,255,.75)}
+.cmp-head.alt{background:var(--paper-mid)}
+.cmp-head.alt h3{color:var(--ink)}
+.cmp-head.alt p{color:var(--muted)}
+.cmp-body{padding:20px}
+.cmp-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.84rem}
+.cmp-row:last-child{border-bottom:none}
+.cmp-row .lbl{color:var(--muted);font-weight:600;min-width:64px;flex-shrink:0;font-size:.75rem;padding-top:1px}
+.cmp-row .val{color:var(--ink);line-height:1.4;flex:1}
+.cmp-row .val.good{color:var(--green-mid);font-weight:600}
+.cmp-row .val.bad{color:var(--terra)}
+.cmp-price{text-align:center;padding:14px 20px;border-top:1px solid var(--line);background:var(--paper)}
+.cmp-price .amt{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--heading);line-height:1}
+.cmp-price .lbl{font-size:.72rem;color:var(--muted);margin-top:2px}
+.cmp-price.featured-price{background:var(--green-faint)}
+.cmp-price.featured-price .amt{color:var(--green-deep)}
+.cmp-footnote{text-align:center;margin-top:18px;font-size:.78rem;color:var(--muted)}
+@media(max-width:640px){.cmp-grid{grid-template-columns:1fr;gap:12px}}
+</style>
+</head>
+<body>
+
+<!-- EXAM DEADLINE BANNER -->
+<div class="exam-banner">
+  <strong>GCSE Maths exams: May &amp; June.</strong> Every week of preparation makes a measurable difference. <a href="#pricing">Start today →</a>
+</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="logo">Nail<span>·</span>GCSE Maths</div>
+    <nav class="nav-links">
+      <a href="#method">The method</a>
+      <a href="#lessons">Sample lessons</a>
+      <a href="#curriculum">Course outline</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#pricing" class="nav-cta">Get started — £99</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+
+      <!-- Left -->
+      <div>
+        <p class="hero-eyebrow">Year 10 &amp; 11 · AQA &amp; Edexcel · Foundation &amp; Higher</p>
+        <h1>Your child can still get the grade <em>they're capable of.</em></h1>
+        <p class="hero-sub">Most students revise hard and move their grade barely at all. The problem isn't effort — it's that nobody has shown them <strong>how marks are actually awarded</strong>, and how to make the right approach automatic under pressure. This course fixes that.</p>
+
+        <!-- Price shown early — strongest objection removed upfront -->
+        <div class="hero-price-anchor">
+          <span class="hpa-price">£99</span>
+          <span class="hpa-vs">vs</span>
+          <span class="hpa-comp">£40/hr private tutor rate<br><strong>Less than 2.5 hours of tutoring. 166 lessons.</strong></span>
+        </div>
+
+        <div class="hero-cta-row">
+          <a href="#pricing" class="btn btn-lg">Get the grade you want →</a>
+          <a href="#lessons" class="btn-ghost">Watch a free sample lesson</a>
+        </div>
+        <p class="hero-reassure">One payment · No subscription · 14-day money-back guarantee · Access from today</p>
+      </div>
+
+      <!-- Right: grade proof panel -->
+      <div class="grade-panel">
+        <div class="gp-head">Grade improvements · real students</div>
+
+        <div class="grade-row">
+          <span class="gr-from">U</span>
+          <div class="gr-mid"><span class="gr-arrow">→</span><span class="gr-lbl">grade</span></div>
+          <span class="gr-to">4</span>
+          <div class="gr-sep"></div>
+          <div class="gr-info"><div class="gr-name">Jordan</div><div class="gr-ctx">Year 11 · Foundation · AQA</div></div>
+        </div>
+        <div class="grade-row">
+          <span class="gr-from">3</span>
+          <div class="gr-mid"><span class="gr-arrow">→</span><span class="gr-lbl">grade</span></div>
+          <span class="gr-to">6</span>
+          <div class="gr-sep"></div>
+          <div class="gr-info"><div class="gr-name">Sarah M.</div><div class="gr-ctx">Year 11 · Higher · Edexcel</div></div>
+        </div>
+        <div class="grade-row">
+          <span class="gr-from">5</span>
+          <div class="gr-mid"><span class="gr-arrow">→</span><span class="gr-lbl">grade</span></div>
+          <span class="gr-to">7</span>
+          <div class="gr-sep"></div>
+          <div class="gr-info"><div class="gr-name">Ellie</div><div class="gr-ctx">Year 11 · Higher · AQA</div></div>
+        </div>
+        <div class="grade-row">
+          <span class="gr-from">6</span>
+          <div class="gr-mid"><span class="gr-arrow">→</span><span class="gr-lbl">grade</span></div>
+          <span class="gr-to">9</span>
+          <div class="gr-sep"></div>
+          <div class="gr-info"><div class="gr-name">Noah</div><div class="gr-ctx">Year 11 · Higher · Edexcel</div></div>
+        </div>
+
+        <p class="gp-note">Illustrative · replaced with verified results before launch</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust">
+  <div class="wrap trust-inner">
+    <span><span class="t-tick">✓</span> AQA &amp; Edexcel — 95% of GCSE maths students</span>
+    <span><span class="t-tick">✓</span> Foundation &amp; Higher</span>
+    <span><span class="t-tick">✓</span> 166 lessons · 10 modules</span>
+    <span><span class="t-tick">✓</span> Aligned to official mark schemes</span>
+    <span><span class="t-tick">✓</span> Verified by qualified teachers</span>
+    <span><span class="t-tick">✓</span> AI tutor included · 24/7</span>
+  </div>
+</div>
+
+<!-- THE 10PM MOMENT — emotional anchor, leads with the AI tutor benefit -->
+<div class="moment">
+  <div class="wrap">
+    <div class="moment-inner">
+      <div class="moment-left">
+        <h2>It's 9pm. Your child is <em>stuck.</em><br>Nobody can help.</h2>
+        <p>You can't help with Higher tier maths anymore. Their teacher isn't available. A tutor costs £40 an hour and isn't there right now anyway.</p>
+        <p>The AI tutor is. It knows every lesson in this course, explains anything in plain English, and never loses patience — at any hour of the night, in the final weeks before exams. <strong>Scoped to this course only. No internet. No distractions.</strong></p>
+        <a href="#pricing" class="btn" style="margin-top:8px">Get access from today →</a>
+      </div>
+      <div class="moment-quote">
+        <p>"As a parent who can't help with higher-tier maths anymore, this was a lifeline. The AI tutor answered his questions at all hours so I didn't have to pretend I knew quadratics."</p>
+        <cite>Mark T. · Parent · Year 11</cite>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)">
+          <p style="font-style:normal;font-size:.83rem;color:rgba(255,255,255,.6)">🔒 Scoped to this course only — no internet access, no off-topic content. Safe for students to use independently.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EARLY PROOF -->
+<section class="bg-white" id="proof" style="padding:68px 0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:32px" class="reveal">
+      <span class="sec-label" style="display:inline-block">Real results</span>
+      <h2 class="sec-title">The grade they were capable of all along.</h2>
+      <p style="font-size:.95rem;color:var(--pencil);max-width:560px;margin:0 auto">Built for both. Whether your child is struggling to reach a pass or already competent and pushing for a top grade — the method works wherever they start. What changes is the destination, not the approach.</p>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-card feat reveal">
+        <div class="p-stars">★★★★★</div>
+        <div class="pjump"><span class="pj-f">3</span><span class="pj-a">→</span><span class="pj-t">6</span><span class="pj-badge">Grade jump</span></div>
+        <p class="p-quote">"The way each topic is explained finally made it click for her — and honestly, for me too when I sat with her. The exam technique module was the turning point. Worth every penny."</p>
+        <div class="p-who">Sarah M. <span>Parent · Year 11 · Higher</span></div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="p-stars">★★★★★</div>
+        <div class="pjump"><span class="pj-f">6</span><span class="pj-a">→</span><span class="pj-t">9</span><span class="pj-badge gold">Top grade</span></div>
+        <p class="p-quote">"I was already doing okay but I wanted a 9 for sixth form. The exam strategy module showed me exactly where I was dropping marks — questions I could have got. Game changer."</p>
+        <div class="p-who">Noah, 16 <span>Student · Year 11 · Higher</span></div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="p-stars">★★★★★</div>
+        <div class="pjump"><span class="pj-f">5</span><span class="pj-a">→</span><span class="pj-t">7</span><span class="pj-badge">Grade jump</span></div>
+        <p class="p-quote">"The workbook made the difference. Doing the questions and seeing exactly where the marks go meant I knew what the examiner wanted. Came out with a 7."</p>
+        <div class="p-who">Ellie, 16 <span>Student · Year 11 · Higher</span></div>
+      </div>
+      <div class="proof-card reveal">
+        <div class="p-stars">★★★★★</div>
+        <div class="pjump"><span class="pj-f" style="font-size:1.3rem;align-self:center">Parent</span></div>
+        <p class="p-quote">"We'd been paying £45 an hour for a tutor. This was less than three lessons' worth and my son used it far more. The AI tutor at 10pm was a lifesaver when I couldn't help."</p>
+        <div class="p-who">Priya K. <span>Parent · Year 10</span></div>
+      </div>
+    </div>
+
+    <div class="val-bar reveal">
+      <div class="vb-stat"><div class="vb-num">£99</div><div class="vb-lbl">One-time payment</div></div>
+      <div class="vb-div"></div>
+      <div class="vb-stat"><div class="vb-num">vs £40/hr</div><div class="vb-lbl">Private tutor rate</div></div>
+      <div class="vb-div"></div>
+      <div class="vb-stat"><div class="vb-num">166</div><div class="vb-lbl">Structured lessons</div></div>
+      <div class="vb-div"></div>
+      <div class="vb-stat"><div class="vb-num">24/7</div><div class="vb-lbl">AI tutor included</div></div>
+      <div class="vb-div"></div>
+      <div style="flex-shrink:0"><a href="#pricing" class="btn">Get started →</a></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- METHOD -->
+<section class="bg-paper" id="method" style="padding:72px 0">
+  <div class="wrap">
+    <span class="sec-label reveal">Why those results happen</span>
+    <h2 class="sec-title reveal">One method. Built into every lesson.</h2>
+    <p class="sec-sub reveal">The gap between effort and grade is almost never ability — it's method. Specifically, a missing understanding of how marks are awarded, and a failure to make the right approach automatic under pressure. The effortful → automatic method fixes both.</p>
+
+    <div class="reveal">
+      <div class="method-name-block">
+        <p>The <span>"effortful → automatic"</span> method</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-n">01</div>
+        <div class="step-t">Understand it properly</div>
+        <p class="step-b">Not just the steps — the <em>why</em> behind them. Understanding is what survives exam pressure; memorised steps often don't. Every lesson teaches the reasoning, not just the recipe.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-n">02</div>
+        <div class="step-t">Practise against the mark scheme</div>
+        <p class="step-b">Exam-style questions mapped to <em>how AQA and Edexcel actually award marks</em> — M1, P1, A1, B1. Students learn to show the working that earns marks, not just arrive at the right answer.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-n">03</div>
+        <div class="step-t">Perform automatically</div>
+        <p class="step-b">By exam day, the right technique is no longer something your child has to think about — it's something they <em>do</em>. That's the difference between knowing maths and performing in maths.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- SAMPLE LESSONS -->
+<section class="bg-white" id="lessons" style="padding:72px 0">
+  <div class="wrap">
+    <span class="sec-label reveal">See it before you buy</span>
+    <h2 class="sec-title reveal">Watch exactly how it's taught.</h2>
+    <p class="sec-sub reveal">Three complete sample lessons — free, no sign-up. Foundation, mid-range, and Higher tier. Judge the method before spending a penny.</p>
+
+    <div class="sample-grid">
+      <div class="sample-card reveal">
+        <div class="s-thumb"><div class="s-mod">Module 02</div><div class="play-c"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="s-dur">7 min</div></div>
+        <div class="s-body"><h3>Percentage change — the way that always works</h3><p>The method examiners want to see — and why shortcuts cost marks under pressure.</p><span class="s-tag">Ratio &amp; Proportion · Foundation &amp; Higher</span></div>
+      </div>
+      <div class="sample-card reveal">
+        <div class="s-thumb" style="background:linear-gradient(135deg,#2E6B57,#1F4A3D)"><div class="s-mod">Module 03</div><div class="play-c"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="s-dur">9 min</div></div>
+        <div class="s-body"><h3>Solving quadratic equations by factorising</h3><p>Appears on almost every Higher paper. The method that earns all three marks, every time.</p><span class="s-tag">Algebra Part 1 · Higher tier</span></div>
+      </div>
+      <div class="sample-card reveal">
+        <div class="s-thumb" style="background:linear-gradient(135deg,#15362C,#2E6B57)"><div class="s-mod">Module 08</div><div class="play-c"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div><div class="s-dur">6 min</div></div>
+        <div class="s-body"><h3>How to read a mark scheme — and use it to score</h3><p>M1, P1, A1, B1 decoded. The single biggest source of lost marks, fixed in one lesson.</p><span class="s-tag">Exam Technique · All students</span></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:28px" class="reveal">
+      <p style="font-size:.93rem;color:var(--pencil);margin-bottom:16px">166 lessons across 10 modules — both tiers, both boards, every grade from 3 upwards.</p>
+      <a href="#pricing" class="btn">Get the full course →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- HOW IT WORKS -->
+<section class="bg-faint" id="how" style="padding:72px 0">
+  <div class="wrap">
+    <span class="sec-label reveal">One course. Three ways to learn.</span>
+    <h2 class="sec-title reveal">Built to fit how your child actually studies.</h2>
+    <p class="sec-sub reveal">Three layers that work brilliantly together — or independently, depending on what your child needs in the moment.</p>
+    <div class="how-grid">
+      <div class="how-card reveal">
+        <div class="how-ico">▶</div>
+        <h3>The video lessons</h3>
+        <p>A warm, expert tutor walks through every topic with worked examples written on screen step by step — the why, not just the answer. Consistent across every one of 166 lessons.</p>
+        <span class="how-tag">watch it click</span>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-ico">✎</div>
+        <h3>The workbook</h3>
+        <p>Every question mapped to the official mark scheme and examiner guidance — M1, P1, A1, B1. Students practise showing working the way the examiner awards marks. That specific habit is where most students find their hidden marks.</p>
+        <span class="how-tag">make it stick</span>
+      </div>
+      <div class="how-card reveal">
+        <div class="how-ico">✦</div>
+        <h3>The AI tutor</h3>
+        <p>Stuck at 9pm? The AI tutor knows every lesson and explains anything in plain English, in the course's own method. Patient, instant, available when no-one else is.</p>
+        <p style="font-size:.78rem;color:var(--green-mid);font-weight:600;margin-top:10px;display:flex;align-items:center;gap:6px"><span>🔒</span> Scoped to this course only — no internet, no off-topic content.</p>
+        <span class="how-tag">never stuck for long</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATHWAYS -->
+<section class="bg-white" id="pathways" style="padding:72px 0">
+  <div class="wrap">
+    <span class="sec-label reveal">However much time you have</span>
+    <h2 class="sec-title reveal">Two ways in. One course.</h2>
+    <p class="sec-sub reveal">Starting in September with months to build — or eight weeks out and needing to move fast. The course works for both. The structure makes it easy to choose exactly how you work through it.</p>
+
+    <div class="reveal path-grid">
+      <div style="background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:28px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--green-mid)"></div>
+        <div style="display:inline-flex;align-items:center;background:var(--green-pale);border:1px solid var(--line);border-radius:6px;padding:4px 10px;margin-bottom:16px">
+          <span style="font-size:.7rem;font-weight:700;color:var(--green-mid);letter-spacing:.05em;text-transform:uppercase">Full course</span>
+        </div>
+        <h3 style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:10px">Start from the beginning. Cover everything.</h3>
+        <p style="font-size:.88rem;color:var(--pencil);line-height:1.65;margin-bottom:16px">Work through every topic in the right order, weighted by where the marks are. Video lessons, workbook practice, AI tutor throughout. Most students cover a module every one to two weeks.</p>
+        <p style="font-size:.82rem;color:var(--green-mid);font-weight:600">Best for: Year 10 &amp; 11 students with time to build properly</p>
+      </div>
+      <div style="background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:28px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:0;left:0;right:0;height:4px;background:var(--terra)"></div>
+        <div style="display:inline-flex;align-items:center;background:var(--terra-pale);border:1px solid rgba(200,85,61,.2);border-radius:6px;padding:4px 10px;margin-bottom:16px">
+          <span style="font-size:.7rem;font-weight:700;color:var(--terra);letter-spacing:.05em;text-transform:uppercase">Fast track</span>
+        </div>
+        <h3 style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:10px">Eight weeks out. Crash through it all, fast.</h3>
+        <p style="font-size:.88rem;color:var(--pencil);line-height:1.65;margin-bottom:16px">Eight weeks is enough to cover the full course intensively. The Fast Track plan sequences every topic by exam frequency — highest-yield first — so you cover everything and hit the most important topics hardest. Same lessons, same workbook, same AI tutor. Just at pace.</p>
+        <p style="font-size:.82rem;color:var(--terra);font-weight:600">Best for: students who need to move fast and cover ground quickly</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:20px;background:var(--green-faint);border:1.5px solid var(--line);border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="font-size:1.4rem;flex-shrink:0">✦</div>
+      <p style="font-size:.9rem;color:var(--ink);line-height:1.6;flex:1;min-width:200px"><strong>The AI tutor works for both paths.</strong> September starter or April sprinter — it knows every lesson and can explain anything in the course's own method. Instantly. Patiently. Without judgement. <span style="color:var(--green-mid);font-weight:600">🔒 Scoped to this course only.</span></p>
+      <a href="#pricing" class="btn" style="flex-shrink:0">Get started →</a>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- MID CTA -->
+<div class="mid-cta">
+  <div class="wrap mid-cta-inner reveal">
+    <div class="mc-left">
+      <h2>Seen enough?</h2>
+      <p>One payment. Access from today. Less than 2.5 hours of private tutoring — and the AI tutor is there whenever they need it, not just when you book a session.</p>
+    </div>
+    <div class="mc-right">
+      <div class="mc-price"><div class="amt">£99</div><div class="lbl">One payment · Full access</div></div>
+      <a href="#pricing" class="btn btn-lg">Get the grade you want →</a>
+      <p style="font-size:.74rem;color:var(--muted)">14-day money-back guarantee</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHY IT WORKS -->
+<section class="bg-white" id="inside" style="padding:72px 0">
+  <div class="wrap">
+    <span class="sec-label reveal">What's built in</span>
+    <h2 class="sec-title reveal">Everything that makes the difference on exam day.</h2>
+    <p class="sec-sub reveal">Most marks are lost to method, technique, and nerves — not ability. This course fixes all three, at every grade level.</p>
+    <div class="why-grid">
+      <div class="why-item reveal"><div class="why-ck">✓</div><div><h3>Aligned to the mark scheme and examiner guidance</h3><p>Every worked example and practice question mapped to how AQA and Edexcel award marks — M1, P1, A1, B1 — drawn from official mark schemes and examiner reports. Students learn to show working that earns marks, not just get the right answer. That's the difference between a 5 and a 7.</p></div></div>
+      <div class="why-item reveal"><div class="why-ck">✓</div><div><h3>Weighted to where the marks actually are</h3><p>Every lesson weighted by how often each topic appears across AQA and Edexcel papers. More time on topics that appear on every paper. Less on topics that rarely come up. Your child's time goes where the marks are.</p></div></div>
+      <div class="why-item reveal"><div class="why-ck">✓</div><div><h3>The effortful → automatic method throughout</h3><p>Understand deeply, practise the right way, perform automatically. Every lesson is built around that progression — so the right technique is there under exam pressure, when it counts most.</p></div></div>
+      <div class="why-item reveal"><div class="why-ck">✓</div><div><h3>Self-paced — your child moves when they're ready</h3><p>In a classroom, the lesson moves on whether it clicked or not. Here, your child stays with each topic until they've got it — then moves forward. No one left behind because the class moved on.</p></div></div>
+      <div class="why-item reveal"><div class="why-ck">✓</div><div><h3>AI tutor — course-scoped, safe, 24/7</h3><p>No internet access. No general-knowledge mode. No off-topic distractions. Just patient, instant expert help with exactly the maths your child is working on — available any hour, any night.</p></div></div>
+      <div class="why-item reveal"><div class="why-ck">✓</div><div><h3>Calculator mastery built in</h3><p>The features most students never use — and how to avoid the input errors that cost easy marks on Papers 2 and 3. A dedicated module most courses don't have.</p></div></div>
+      <div class="why-item reveal"><div class="why-ck">✓</div><div><h3>AQA 8300 and Edexcel 1MA1 — both tiers</h3><p>Covers around 95% of GCSE maths students. The full subject content as defined by the Department for Education, across Foundation and Higher for both major exam boards.</p></div></div>
+      <div class="why-item reveal"><div class="why-ck">✓</div><div><h3>One course. Every level from grade 3 to 9.</h3><p>Whether your child is working towards their first pass or chasing top grades for sixth form — the method works wherever they start. Different destination, same approach.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- TEACHERS -->
+<section class="bg-paper" id="teachers" style="padding:72px 0">
+  <div class="wrap">
+    <span class="sec-label reveal">Meet the team</span>
+    <h2 class="sec-title reveal">Built and taught by people who do this for a living.</h2>
+    <p class="sec-sub reveal">Every lesson designed, taught and verified by qualified maths teachers with thousands of hours of real tutoring behind them.</p>
+    <div class="teach-grid">
+      <div class="teach reveal">
+        <div class="teach-av">H</div>
+        <h3>Hassan</h3>
+        <span class="teach-role">Lead teacher &amp; course reviewer</span>
+        <p>Hassan reviewed every lesson for mathematical accuracy, exam-readiness, and clarity — the human quality gate on everything in the course.</p>
+        <ul><li>A*A*A* at A-Level</li><li>Chemical Engineering degree</li><li>Qualified teacher (PGCE)</li><li>1,500+ hours of maths tutoring</li></ul>
+      </div>
+      <div class="teach reveal">
+        <div class="teach-av">L</div>
+        <h3>Lottie</h3>
+        <span class="teach-role">Maths teacher &amp; curriculum lead</span>
+        <p>Lottie has taught GCSE maths in UK secondary schools for over a decade, helping students who've lost confidence find their way back.</p>
+        <ul><li>First-class degree in Mathematics</li><li>Qualified teacher (PGCE), QTS</li><li>10+ years GCSE Foundation &amp; Higher</li><li>Former head of maths intervention</li></ul>
+      </div>
+      <div class="teach reveal">
+        <div class="teach-av" style="font-size:.82rem;font-family:'Inter',sans-serif;font-weight:700">OLI</div>
+        <h3>Oli — Founder</h3>
+        <span class="teach-role">Built the method</span>
+        <p>Struggled with maths early on, then taught himself how to study smart and execute against the mark scheme. A career in finance sharpened that lens — learning to perform under pressure, not just understand in theory.</p>
+        <ul><li>First-class BSc Economics</li><li>Chartered Accountant (ACA)</li><li>Finance professional — private equity &amp; investing</li><li>Creator of the effortful → automatic method</li></ul>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:28px;background:var(--paper-mid);border:1.5px solid var(--line);border-left:4px solid var(--green-mid);border-radius:0 14px 14px 0;padding:22px 28px;display:flex;gap:20px;align-items:flex-start">
+      <div style="flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--green-pale);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--green-mid);margin-top:2px">▶</div>
+      <div>
+        <p style="font-size:.93rem;font-weight:700;color:var(--heading);margin-bottom:6px">About the on-screen tutor</p>
+        <p style="font-size:.88rem;color:var(--pencil);line-height:1.65">Every lesson was designed, written and verified by qualified maths teachers. The on-screen tutor is a professional digital presenter — which means every explanation is precisely paced, perfectly consistent, and delivered to the same standard across all 166 lessons. Something no live recording, however talented the teacher, can guarantee at scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- CURRICULUM -->
+<section class="bg-faint" id="curriculum" style="padding:72px 0">
+  <div class="wrap">
+    <span class="sec-label reveal">The full course</span>
+    <h2 class="sec-title reveal">Ten modules. 166 lessons. Every topic on the exam.</h2>
+    <p class="sec-sub reveal">Every topic weighted by how often it appears across AQA and Edexcel papers — so the course spends time where the marks are. A complete path from foundations through to final mock.</p>
+    <div class="mod-grid">
+      <div class="mod reveal"><div class="mod-no">00</div><div class="mod-body"><h3>Before We Start</h3><p>How marks really work, how to study smart, the mindset that moves grades.</p></div><div class="mod-count">14 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">01</div><div class="mod-body"><h3>Number</h3><p>Fractions, percentages, standard form, bounds — the bedrock of every paper.</p></div><div class="mod-count">20 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">02</div><div class="mod-body"><h3>Ratio, Proportion &amp; Rates of Change</h3><p>Ratio, proportion, compound measures and growth — high-frequency topics.</p></div><div class="mod-count">16 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">03</div><div class="mod-body"><h3>Algebra Part 1</h3><p>Expanding, factorising, equations — core algebra that everything builds on.</p></div><div class="mod-count">24 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">04</div><div class="mod-body"><h3>Algebra Part 2: Sequences &amp; Graphs</h3><p>Sequences, straight lines, quadratics, functions and graph work.</p></div><div class="mod-count">25 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">05</div><div class="mod-body"><h3>Geometry Part 1</h3><p>Angles, shapes, area, volume and the geometry foundations.</p></div><div class="mod-count">18 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">06</div><div class="mod-body"><h3>Geometry Part 2</h3><p>Pythagoras, trigonometry, circles, vectors and transformations.</p></div><div class="mod-count">17 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">07</div><div class="mod-body"><h3>Statistics &amp; Probability</h3><p>Averages, charts, probability and sampling — done the way the exam asks.</p></div><div class="mod-count">16 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">08</div><div class="mod-body"><h3>Exam Technique</h3><p>Reading questions, showing working, calculator mastery, where the marks go.</p></div><div class="mod-count">12 lessons</div></div>
+      <div class="mod reveal"><div class="mod-no">09</div><div class="mod-body"><h3>Mock Exams &amp; Final Prep</h3><p>Full mock papers and the final run-in to walk in completely ready.</p></div><div class="mod-count">4 lessons</div></div>
+    </div>
+    <p class="curr-note reveal">Foundation &amp; Higher · AQA 8300 and Edexcel 1MA1 · Full DfE GCSE Maths subject content · Video + workbook + AI tutor on every topic</p>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- REVIEWS -->
+<section class="bg-white" id="reviews" style="padding:72px 0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:32px" class="reveal">
+      <span class="sec-label" style="display:inline-block">What families say</span>
+      <h2 class="sec-title">Real results, in their own words.</h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><div class="rev-stars">★★★★★</div><p>"My son has always found it hard to focus, but the short video lessons with the writing appearing on screen really held his attention. He actually wanted to do the next one."</p><div class="rev-who">Donna R. <span>Parent · Year 10</span></div></div>
+      <div class="rev reveal"><div class="rev-stars">★★★★★</div><p>"As a parent who can't help with higher-tier maths anymore, this was a lifeline. The AI tutor answered his questions at all hours so I didn't have to pretend I knew quadratics."</p><div class="rev-who">Mark T. <span>Parent · Year 11</span></div></div>
+      <div class="rev reveal"><div class="rev-stars">★★★★★</div><p>"Used it alongside school. Filled all the gaps the classroom moved too fast over. Went up two grades by mocks. Cannot recommend it enough."</p><div class="rev-who">Aisha B. <span>Parent · Year 11</span></div></div>
+      <div class="rev reveal"><div class="rev-stars">★★★★★</div><p>"Honestly better than the tutoring we'd tried. It's there whenever she needs it, doesn't cost a fortune, and the confidence side surprised me most."</p><div class="rev-who">Rebecca H. <span>Parent · Year 11</span></div></div>
+      <div class="rev reveal"><div class="rev-stars">★★★★★</div><p>"My daughter went from a predicted 4 to achieving a 6. The exam technique module changed how she approaches every question. Worth five times the price."</p><div class="rev-who">James W. <span>Parent · Year 11</span></div></div>
+      <div class="rev reveal"><div class="rev-stars">★★★★★</div><p>"The workbook questions are what did it for me. Seeing the mark scheme next to my working showed me exactly where I was losing marks. Simple but brilliant."</p><div class="rev-who">Megan, 15 <span>Student · Foundation</span></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- VALUE COMPARISON -->
+<section class="bg-paper-mid" style="padding:72px 0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:36px" class="reveal">
+      <span class="sec-label" style="display:inline-block">The honest comparison</span>
+      <h2 class="sec-title">How £99 stacks up.</h2>
+      <p style="font-size:.95rem;color:var(--pencil);max-width:500px;margin:0 auto">Most parents either pay for a private tutor or piece together free resources. Here's how this course compares to both — honestly.</p>
+    </div>
+
+    <div class="cmp-grid reveal">
+
+      <!-- Private tutor -->
+      <div class="cmp-card">
+        <div class="cmp-head" style="background:var(--ink)">
+          <h3>Private tutor</h3>
+          <p>1-to-1 sessions, booked weekly</p>
+        </div>
+        <div class="cmp-body">
+          <div class="cmp-row"><span class="lbl">Cost</span><span class="val bad">£35–£50/hr · typically £560–£800 for one term</span></div>
+          <div class="cmp-row"><span class="lbl">Available</span><span class="val bad">When you can book · usually 1 hr/week</span></div>
+          <div class="cmp-row"><span class="lbl">Coverage</span><span class="val bad">Depends on the tutor · no guaranteed curriculum</span></div>
+          <div class="cmp-row"><span class="lbl">Mark scheme</span><span class="val bad">Varies widely · many tutors teach method, not marks</span></div>
+          <div class="cmp-row"><span class="lbl">9pm stuck?</span><span class="val bad">Not available</span></div>
+          <div class="cmp-row"><span class="lbl">Consistency</span><span class="val bad">Different explanation every week</span></div>
+        </div>
+        <div class="cmp-price">
+          <div class="amt">£600+</div>
+          <div class="lbl">typical one-term cost</div>
+        </div>
+      </div>
+
+      <!-- Nail GCSE Maths — featured -->
+      <div class="cmp-card featured">
+        <div class="cmp-head" style="background:var(--green-deep)">
+          <h3>Nail GCSE Maths</h3>
+          <p>Complete structured course</p>
+        </div>
+        <div class="cmp-body">
+          <div class="cmp-row"><span class="lbl">Cost</span><span class="val good">£99 · one payment · everything included</span></div>
+          <div class="cmp-row"><span class="lbl">Available</span><span class="val good">24/7 · including the AI tutor at 9pm</span></div>
+          <div class="cmp-row"><span class="lbl">Coverage</span><span class="val good">166 lessons · full AQA &amp; Edexcel curriculum</span></div>
+          <div class="cmp-row"><span class="lbl">Mark scheme</span><span class="val good">Every lesson aligned to real mark schemes · M1, P1, A1, B1</span></div>
+          <div class="cmp-row"><span class="lbl">9pm stuck?</span><span class="val good">AI tutor · instant · patient · no judgement</span></div>
+          <div class="cmp-row"><span class="lbl">Consistency</span><span class="val good">Same method · same standard · every lesson</span></div>
+        </div>
+        <div class="cmp-price featured-price">
+          <div class="amt">£99</div>
+          <div class="lbl">one payment · access through results day</div>
+        </div>
+      </div>
+
+      <!-- Free resources -->
+      <div class="cmp-card">
+        <div class="cmp-head" style="background:var(--ink)">
+          <h3>Free resources</h3>
+          <p>Corbettmaths, YouTube, revision sites</p>
+        </div>
+        <div class="cmp-body">
+          <div class="cmp-row"><span class="lbl">Cost</span><span class="val good">Free</span></div>
+          <div class="cmp-row"><span class="lbl">Available</span><span class="val good">Any time</span></div>
+          <div class="cmp-row"><span class="lbl">Coverage</span><span class="val bad">Library of topics · no structure or sequence</span></div>
+          <div class="cmp-row"><span class="lbl">Mark scheme</span><span class="val bad">Rarely covered · almost never by topic frequency</span></div>
+          <div class="cmp-row"><span class="lbl">9pm stuck?</span><span class="val bad">Search and hope · no consistent method</span></div>
+          <div class="cmp-row"><span class="lbl">Consistency</span><span class="val bad">Different teacher, method, and explanation every video</span></div>
+        </div>
+        <div class="cmp-price">
+          <div class="amt">£0</div>
+          <div class="lbl">but no structure, sequence, or support</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="cmp-footnote reveal">Private tutor rates based on typical UK market rates of £35–£50/hour for GCSE maths, 2024–2025. Free resources are genuinely useful as a library — this course is a different thing: structured, sequenced, and built around how marks are actually awarded.</p>
+
+    <div style="text-align:center;margin-top:28px" class="reveal">
+      <a href="#pricing" class="btn btn-lg">Get the course for £99 →</a>
+      <p style="font-size:.76rem;color:var(--muted);margin-top:10px">14-day money-back guarantee · No subscription · Access from today</p>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- PRICING -->
+<section class="bg-paper" id="pricing" style="padding:72px 0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:32px" class="reveal">
+      <span class="sec-label" style="display:inline-block">Simple, one-off pricing</span>
+      <h2 class="sec-title">One course. Everything included.</h2>
+      <p style="font-size:.95rem;color:var(--pencil)">No subscription. No upsells. No hidden extras. Less than 2.5 hours of private tutoring.</p>
+    </div>
+    <div class="pricing-inner">
+      <div class="plan-single reveal">
+        <div class="plan-ribbon">Year 10 &amp; 11 · AQA &amp; Edexcel</div>
+        <h3>Nail GCSE Maths</h3>
+        <div class="plan-who">Foundation and Higher · AQA 8300 and Edexcel 1MA1</div>
+        <div class="plan-price">£99<small> · one payment</small></div>
+        <div class="plan-compare">Less than 2.5 hours of private tutoring · Access through results day</div>
+        <ul>
+          <li>All 166 lessons across 10 modules</li>
+          <li>Foundation and Higher — AQA and Edexcel</li>
+          <li>Video lesson + workbook + AI tutor on every topic</li>
+          <li>Mark-scheme aligned practice throughout</li>
+          <li>Exam technique and calculator mastery built in</li>
+          <li>The effortful → automatic method throughout</li>
+          <li>Access through to results day in August</li>
+        </ul>
+        <a href="#" class="btn btn-lg" data-checkout="nail-gcse-maths">Get the grade you want →</a>
+        <div class="plan-guarantee">🛡 14-day money-back guarantee · No questions asked</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-rule">
+
+<!-- FAQ -->
+<section class="bg-faint" style="padding:72px 0">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:28px" class="reveal">
+      <span class="sec-label" style="display:inline-block">Common questions</span>
+      <h2 class="sec-title">Everything you need to know.</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal"><h3>Which exam board does this cover?</h3><p>AQA (8300) and Edexcel (1MA1) — together covering around 95% of GCSE maths students in England. Both Foundation and Higher tiers, all three papers. The course maps your child to the right board and tier from lesson one.</p></div>
+      <div class="faq-item reveal"><h3>My child sits OCR or another board — is this still useful?</h3><p>GCSE Maths subject content is set by the Department for Education and is almost entirely common across all boards. The topics, the maths, and the method are the same regardless of board. The only board-specific elements are the AQA and Edexcel mark scheme notation — OCR students will benefit from everything except those specific marking details.</p></div>
+      <div class="faq-item reveal"><h3>My child has really struggled with maths. Will this work?</h3><p>Yes — Module 00 starts before any GCSE content, covering the method, mindset, and how marks actually work. The effortful → automatic approach is specifically designed for students who feel behind and haven't responded to conventional revision.</p></div>
+      <div class="faq-item reveal"><h3>Is this a replacement for school or a supplement?</h3><p>A supplement — a powerful one. It works alongside school, filling the gap between what's covered in class and what gets marked in the exam. Most useful in the evenings and during revision periods.</p></div>
+      <div class="faq-item reveal"><h3>What if it doesn't suit them?</h3><p>There's a 14-day money-back guarantee. If your child starts the course and it isn't the right fit, contact us within 14 days for a full refund. No questions asked, no hoops to jump through.</p></div>
+      <div class="faq-item reveal"><h3>How is this different from Corbettmaths or Mr Barton?</h3><p>Free resources are libraries — useful if you know what to look up. This is a structured course: every topic in the right order, weighted by how often it appears across AQA and Edexcel papers. The workbook builds active practice against the real mark scheme. The AI tutor explains anything that isn't clicking. That combination doesn't exist in any free resource.</p></div>
+      <div class="faq-item reveal"><h3>Is the AI tutor safe for my child to use?</h3><p>Yes. It's scoped entirely to this course — no internet access, cannot discuss anything outside GCSE maths in the lessons, redirects off-topic questions back to the material. Not a general-purpose AI.</p><p>A 2025 randomised controlled trial across five UK secondary schools found that AI-assisted maths tutoring produced equivalent outcomes to human tutoring on immediate learning correction, and a 5.5 percentage point advantage on knowledge transfer — with a factual error rate of 0.1% across nearly 4,000 interactions. Not a substitute for a qualified teacher; grade outcomes depend on individual effort.</p></div>
+      <div class="faq-item reveal"><h3>Who teaches the course?</h3><p>Every lesson was designed, written and verified by qualified maths teachers — Hassan (lead reviewer, 1,500+ tutoring hours) and Lottie (curriculum lead, 10+ years teaching). The on-screen presenter is a professional digital tutor, delivering every explanation consistently across all 166 lessons.</p></div>
+      <div class="faq-item reveal"><h3>Is the AI tutor actually useful?</h3><p>It knows every lesson and the exact method used throughout. Students use it most at 9–10pm when stuck and nobody else can help. Patient, clear, no judgement. If a response doesn't click, rewatching the relevant lesson is the right next step.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-inner">
+      <span class="sec-label reveal">Don't leave it to chance</span>
+      <h2 class="reveal">Give them the course built to <span class="hand">nail it.</span></h2>
+      <p class="reveal">Everything they need to walk into that exam knowing exactly what to do — the method, the technique, the mark scheme — and come out with the grade they're capable of.</p>
+      <div class="final-urgency reveal"><span>📅</span><span><strong>GCSE Maths exams: May &amp; June.</strong> One payment, access from today.</span></div>
+      <div class="reveal"><a href="#pricing" class="btn btn-xl" style="background:#fff;color:var(--green-deep);box-shadow:0 6px 0 rgba(0,0,0,.18),0 10px 28px rgba(0,0,0,.18)">Get the grade you want →</a></div>
+      <p class="final-note reveal">£99 · One payment · 14-day money-back guarantee · No subscription</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-logo">Nail<span>·</span>GCSE Maths</div>
+      <div class="foot-links">
+        <a href="#method">The method</a>
+        <a href="#curriculum">Course outline</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#pricing">Pricing</a>
+        <a href="mailto:hello@nailgcsemaths.co.uk">Contact</a>
+      </div>
+    </div>
+    <div class="foot-inner" style="margin-top:10px">
+      <div class="foot-links foot-links-legal">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="ai-tutor-policy.html">AI Tutor Policy</a>
+        <a href="accessibility.html">Accessibility</a>
+      </div>
+    </div>
+    <p class="foot-legal">© 2026 Nail It Education Ltd (company number 17292487). Registered in England and Wales. Nail GCSE Maths is an independent course and is not affiliated with, endorsed by, or produced in partnership with AQA, Pearson Edexcel, or the Department for Education. AQA and Edexcel are registered trademarks of their respective owners. Topic frequency data derived from official AQA 8300 and Edexcel 1MA1 past papers, 2017–2024. Grade outcomes depend on individual effort and application. Illustrative reviews shown — to be replaced with verified customer testimonials before launch.</p>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const io = new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')),2400);
+document.querySelectorAll('[data-checkout]').forEach(btn=>{
+  btn.addEventListener('click',ev=>{ev.preventDefault();alert('Replace with Thinkific checkout URL');});
+});
+</script>
+</body>
+</html>
